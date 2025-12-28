@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	fmt.Println("hi git")
+	fmt.Println("Hello git")
 	ffeature.Featture1()
 	feature2.Feature2()
 	feature3.Feature3("привет как дела", 5)
