@@ -2,20 +2,19 @@ package simpleconection
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/jackc/pgx/v5"
 )
 
-func CheckConection() {
-	ctx := context.Background()
-	conn, err := pgx.Connect(ctx, "postgres://postgres:password@localhost:5432/postgres")
+func CheckConection(ctx context.Context) (*pgx.Conn, error) {
+	conn, err := pgx.Connect(ctx, "postgres://postgres:garfildR3@localhost:5432/postgres")
 	if err != nil {
 		panic(err)
 	}
-	if err := conn.Ping(ctx); err != nil {
-		panic(err)
-	}
 
-	fmt.Println("Подключение успешно!!")
+	if err1 := conn.Ping(ctx); err1 != nil {
+		panic(err1)
+	}
+	return conn, err
+
 }
